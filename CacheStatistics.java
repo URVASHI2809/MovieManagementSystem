@@ -3,14 +3,10 @@ public class CacheStatistics {
     private int l2Hits;
     private int primaryHits;
 
-    public void incrementL1Hits() { l1Hits++; }
-    public void incrementL2Hits() { l2Hits++; }
-    public void incrementPrimaryHits() { primaryHits++; }
+n    public void increm+; }
+    public void increts++; }
 
     public void displayStats() {
-        System.out.println("L1 Cache Hits: " + l1Hits);
-        System.out.println("L2 Cache Hits: " + l2Hits);
-        System.out.println("Primary Store Hits: " + primaryHits);
-        System.out.println("Total Searches: " + (l1Hits + l2Hits + primaryHits));
+        System.out.prins + l2Hits + primaryHits));
     }
 }
