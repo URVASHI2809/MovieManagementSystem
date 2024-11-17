@@ -8,30 +8,13 @@ public class CacheManager {
     private LinkedHashMap<String, Movie> l2Cache = new LinkedHashMap<>(L2_CACHE_LIMIT, 0.75f, true);
     private CacheStatistics hitTracker;
 
-    public CacheManager(CacheStatistics hitTracker) {
-        this.hitTracker = hitTracker;
-    }
-
-    public Movie getFromCache(int userId, String searchKey) {
-        if (l1Cache.containsKey(userId) && l1Cache.get(userId).containsKey(searchKey)) {
-            hitTracker.incrementL1Hits();
-            System.out.println("L1 cache hit");
-            return l1Cache.get(userId).get(searchKey); // L1 Cache hit
-        } else if (l2Cache.containsKey(searchKey)) {
-            hitTracker.incrementL2Hits();
-            System.out.println("L2 cache hit");
-            // Add the found movie to the user's L1 cache for faster future access
-            Movie movie = l2Cache.get(searchKey);
-            addToL1Cache(userId, searchKey, movie);
-            return movie; // L2 Cache hit
         }
         return null; // Cache miss
     }
 
     public void clearL1Cache(int userId) {
         if (l1Cache.containsKey(userId)) {
-            l1Cache.get(userId).clear();
-            System.out.println("L1 cache cleared for user " + userId);
+            l1Cache.get(userId).clear(intln("L1 cache cleared for user " + userId);
         }
     }
 
